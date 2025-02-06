@@ -1,0 +1,269 @@
+/* Main container for the form */
+.signup-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+/* Left panel styling */
+.left-panel {
+  background-color: red;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.left-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.left-panel p {
+  margin: 0.5rem 0;
+}
+
+.signup-button {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background-color: white;
+  color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.signup-button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Right panel (form) styling */
+.form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.form-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Input and label styling */
+.label {
+  font-size: 13px;
+  color: black;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.input-field2 {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.9rem;
+  margin-bottom: 1.2rem;
+  background-color: #f9f9f9;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  color: #333333;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field2::placeholder {
+  color: #5b5b5b;
+}
+
+.input-field2:focus {
+  border-color: #0074d9;
+  box-shadow: 0 0 8px rgba(0, 116, 217, 0.5);
+  outline: none;
+}
+
+/* Submit button styling */
+.signin-button {
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.signin-button:hover {
+  transform: scale(1.05);
+  background-color: darkred;
+}
+
+/* Link section for additional actions */
+.link-section {
+  color: black;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.link-section a {
+  color: red;
+  text-decoration: none;
+}
+
+.link-section a:hover {
+  text-decoration: underline;
+}
+
+/* OTP Popup styling */
+.otp-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.otp-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.otp-content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.otp-content input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.otp-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #d20000;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #000000;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: black;
+}
+
+.cancel-button:hover {
+  background-color: #d20000;
+  color: #fff;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Responsive styling */
+@media (max-width: 480px) {
+  .left-panel {
+    background-color: red;
+    
+    color: white;
+    flex: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  
+  .left-panel h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .left-panel p {
+    margin: 5px 0;
+  }
+  
+  .signup-container {
+    
+    flex-direction: column;
+  }
+
+  .input-field2 {
+    width: 250px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    color: #333333;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  
+  .label {
+    margin-left: 30px;
+    font-size: 13px;
+    color: black;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .signin-button {
+    margin-left: 25px;
+    width: 250px;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color:#d20000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}

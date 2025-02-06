@@ -1,0 +1,80 @@
+.sidebar {
+  width: 18%;
+  height: 100vh;
+  background: #fff;
+  color: #d20000;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.heading2 {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #d20000;
+  margin: 1rem 0;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin: 1rem 0;
+  position: relative;
+}
+
+.sidebar-menu li a {
+  color: #d20000;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center; /* Align text and icon */
+  padding: 0.8rem 1rem;
+  border-radius: 0 20px 20px 0; /* Apply border radius */
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.sidebar-menu li a i {
+  margin-right: 0.5rem; /* Space between icon and text */
+}
+
+.sidebar-menu li a:hover {
+  color: white;
+  background-color: #d20000;
+}
+
+.sidebar-menu li.active a {
+  background-color: #d20000;
+  color: white;
+}
+
+.sidebar-menu li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1rem;
+  width: calc(100% + 1rem);
+  border-radius: 0 20px 20px 0; /* Apply border radius */
+  background-color: #fff;
+  z-index: -1;
+  transition: background-color 0.3s;
+}
+
+.sidebar-menu li.active a::before {
+  background-color: #d20000;
+}
+
+.sidebar-menu li a:hover::before {
+  background-color: #d20000;
+}
