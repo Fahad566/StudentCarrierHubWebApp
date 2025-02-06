@@ -32,15 +32,28 @@ const Teachers = () => {
   useEffect(() => {
     const fetchTeachers = async () => {
       try {
+        // Get the university from localStorage
+        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+        const userUniversity = userDetails?.university || "";
+
+        if (!userUniversity) {
+          setError("University not found in local storage.");
+          setLoading(false);
+          return;
+        }
+
         const querySnapshot = await getDocs(collection(firestore, "Teachers"));
-        const teachers = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          name: doc.data().name || "Teacher Name", // Demo data placeholders
-          email: doc.data().email || "teacher@example.com",
-          password: doc.data().password || "********",
-          university: doc.data().university || "Demo University",
-          userId: doc.data().userId || "", // Ensure userId is included
-        }));
+        const teachers = querySnapshot.docs
+          .map((doc) => ({
+            id: doc.id,
+            name: doc.data().name || "Teacher Name",
+            email: doc.data().email || "teacher@example.com",
+            password: doc.data().password || "********",
+            university: doc.data().university || "Demo University",
+            userId: doc.data().userId || "",
+          }))
+          .filter((teacher) => teacher.university === userUniversity); // Filter by university
+
         setData(teachers);
       } catch (err) {
         console.error("Error fetching Teachers:", err);
@@ -84,10 +97,7 @@ const Teachers = () => {
   // Handle Delete Teacher
   const handleDelete = async (id) => {
     try {
-      // Get the document reference
       const teacherDoc = doc(firestore, "Teachers", id);
-
-      // Retrieve the teacher's document to access the uid
       const teacherSnapshot = await getDoc(teacherDoc);
 
       if (!teacherSnapshot.exists()) {
@@ -95,23 +105,20 @@ const Teachers = () => {
       }
 
       const teacherData = teacherSnapshot.data();
-      const userId = teacherData.userId; // Get the uid from the Firestore document
+      const userId = teacherData.userId;
 
-      // Delete the teacher's document from Firestore
       await deleteDoc(teacherDoc);
 
-      // Delete the teacher from Firebase Authentication
       if (userId) {
         const user = auth.currentUser;
 
         if (user?.uid === userId) {
-          await deleteUser(user); // Use deleteUser to remove from authentication
+          await deleteUser(user);
         } else {
           console.error("User mismatch or not authenticated.");
         }
       }
 
-      // Update state after deletion
       setData((prevData) => prevData.filter((item) => item.id !== id));
     } catch (err) {
       console.error("Error deleting Teacher:", err.message);
@@ -260,3 +267,4 @@ const Teachers = () => {
 };
 
 export default Teachers;
+

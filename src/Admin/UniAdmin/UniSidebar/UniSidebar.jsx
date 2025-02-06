@@ -17,6 +17,11 @@ const UniSidebar = () => {
             <i className="fas fa-tachometer-alt"></i> Dashboard
           </Link>
         </li>
+        <li className={location.pathname === "/companies" ? "active" : ""}>
+          <Link to="/companies">
+        <i className="fas fa-building"></i> Companies
+          </Link>
+        </li>
         <li className={location.pathname === "/teacher" ? "active" : ""}>
           <Link to="/teacher">
             <i className="fas fa-chalkboard-teacher"></i> Teachers
