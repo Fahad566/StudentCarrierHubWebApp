@@ -12,6 +12,8 @@ import Unidashboard from "./Admin/UniAdmin/Unidashboard/Unidashboard";
 import Students from "./Admin/UniAdmin/Students/Students";
 import TeacherForm from "./Admin/UniAdmin/Teachers/TeacherForm";
 import Teachers from "./Admin/UniAdmin/Teachers/Teachers";
+import Companies from "./Admin/UniAdmin/Companies/companies";
+import CompaniesForm from "./Admin/UniAdmin/Companies/CompaniesForm";
 
 function App() {
   return (
@@ -28,7 +30,8 @@ function App() {
         <Route path="/teacher" element={<Teachers />} />
         <Route path="/add-teacher" element={<TeacherForm />} />
         <Route path="/student" element={<Students />} />
-
+        <Route path="/companies" element={<Companies />} />
+        <Route path="/add-company" element={<CompaniesForm />} />
       </Routes>
     </Router>
   );

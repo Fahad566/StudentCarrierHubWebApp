@@ -1,7 +1,7 @@
 // import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 // import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../index";  // Adjust the path based on where firebase.js is located
+// import { auth } from "../../index";
 // import { collection, query, where, getDocs } from "firebase/firestore";
 // import { firestore } from "../../index";
 // import "./Login.css";
@@ -15,53 +15,82 @@
 
 //   const handleLogin = async (e) => {
 //     e.preventDefault();
-//     setError(""); // Reset any previous errors
-  
-    // try {
-    //   // Step 1: Authenticate the user with Firebase Authentication
-    //   const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    //   const user = userCredential.user;
-  
-    //   // Store the authentication token in localStorage
-    //   localStorage.setItem("authToken", user.accessToken);
-  
-    //   console.log("Authenticated user:", user);
-  
-    //   // Step 2: Check for Main Admin Email
-    //   if (email === "fahadaziz2806@gmail.com") {
-    //     console.log("Main Admin logged in");
-    //     navigate("/dashboard"); // Redirect to Main Admin Dashboard
-    //     return;
-    //   }
-  
-    //   // Step 3: Check Firestore Collections
-    //   // 3a. Check "Users" collection
-    //   const usersQuery = query(collection(firestore, "students"), where("email", "==", email));
-    //   const usersSnapshot = await getDocs(usersQuery);
-  
-    //   if (!usersSnapshot.empty) {
-    //     console.log("User found in Firestore Users collection");
-    //     navigate("/dashboard"); // Redirect to User Dashboard
-    //     return;
-    //   }
-  
-    //   // 3b. Check "UniAdmins" collection
-    //   const uniAdminQuery = query(collection(firestore, "UniAdmins"), where("email", "==", email));
-    //   const uniAdminSnapshot = await getDocs(uniAdminQuery);
-  
-    //   if (!uniAdminSnapshot.empty) {
-    //     console.log("UniAdmin found in Firestore");
-    //     navigate("/uniadmin-dashboard"); // Redirect to UniAdmin Dashboard
-    //     return;
-    //   }
-  
-//       // Step 4: No Match Found
-//       console.error("No matching email found in any collection");
-//       setError("You are not authorized to access this platform.");
-  
+//     setError("");
+
+//     try {
+//       // Step 1: Authenticate the user with Firebase Authentication
+//       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+//       const user = userCredential.user;
+
+//       console.log("Authenticated user:", user);
+
+//       // Step 2: Fetch user details from Firestore
+//       let userDetails = null;
+//       let role = null;
+
+//       // Check Main Admin
+//       if (email === "fahadaziz2806@gmail.com") {
+//         userDetails = { username: "Main Admin", email };
+//         role = "mainAdmin";
+//       } else {
+//         // Check "students" collection
+//         const studentQuery = query(collection(firestore, "students"), where("email", "==", email));
+//         const studentSnapshot = await getDocs(studentQuery);
+
+//         if (!studentSnapshot.empty) {
+//           userDetails = studentSnapshot.docs[0].data();
+//           role = "student";
+//         } else {
+//           // Check "UniAdmins" collection
+//           const uniAdminQuery = query(collection(firestore, "UniAdmins"), where("email", "==", email));
+//           const uniAdminSnapshot = await getDocs(uniAdminQuery);
+
+//           if (!uniAdminSnapshot.empty) {
+//             userDetails = uniAdminSnapshot.docs[0].data();
+//             role = "uniAdmin";
+//           } else {
+//             // Check "teachers" collection
+//             const teacherQuery = query(collection(firestore, "Teachers"), where("email", "==", email));
+//             const teacherSnapshot = await getDocs(teacherQuery);
+
+//             if (!teacherSnapshot.empty) {
+//               userDetails = teacherSnapshot.docs[0].data();
+//               role = "teacher";
+//             }
+//           }
+//         }
+//       }
+
+//       // Step 3: Store user details locally and redirect based on role
+//       if (userDetails && role) {
+//         localStorage.setItem("authToken", user.accessToken);
+//         localStorage.setItem("userDetails", JSON.stringify(userDetails));
+//         console.log("User details stored:", userDetails);
+
+//         // Redirect to the appropriate dashboard
+//         switch (role) {
+//           case "mainAdmin":
+//             navigate("/dashboard"); // Main Admin Dashboard
+//             break;
+//           case "student":
+//             navigate("/student-dashboard"); // Student Dashboard
+//             break;
+//           case "uniAdmin":
+//             navigate("/uniadmin-dashboard"); // UniAdmin Dashboard
+//             break;
+//           case "teacher":
+//             navigate("/teacher-dashboard"); // Teacher Dashboard
+//             break;
+//           default:
+//             throw new Error("Unexpected role");
+//         }
+//       } else {
+//         console.error("No user details found in Firestore.");
+//         setError("You are not authorized to access this platform.");
+//       }
 //     } catch (error) {
 //       console.error("Error during login:", error.message);
-  
+
 //       // Handle Firebase Authentication errors
 //       if (error.code === "auth/user-not-found") {
 //         setError("No user found with this email.");
@@ -72,8 +101,6 @@
 //       }
 //     }
 //   };
-  
-  
 
 //   return (
 //     <div className="login-wrapper">
@@ -84,7 +111,6 @@
 
 //       {/* Right Side - Login Form */}
 //       <div className="form-section">
-       
 //         <h1 className="login-title">Login</h1>
 //         <form onSubmit={handleLogin}>
 //           <input
@@ -111,13 +137,14 @@
 //         <p className="signup-link">
 //           Don’t Have An Account? <a href="Signup">Sign Up</a>
 //         </p>
-//         {error && <p className="error-message">{error}</p>} {/* Display error message */}
+//         {error && <p className="error-message">{error}</p>}
 //       </div>
 //     </div>
 //   );
 // };
 
 // export default Login;
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -176,6 +203,15 @@ const Login = () => {
             if (!teacherSnapshot.empty) {
               userDetails = teacherSnapshot.docs[0].data();
               role = "teacher";
+            } else {
+              // Check "companies" collection
+              const companyQuery = query(collection(firestore, "Companies"), where("email", "==", email));
+              const companySnapshot = await getDocs(companyQuery);
+
+              if (!companySnapshot.empty) {
+                userDetails = companySnapshot.docs[0].data();
+                role = "company";
+              }
             }
           }
         }
@@ -187,7 +223,7 @@ const Login = () => {
         localStorage.setItem("userDetails", JSON.stringify(userDetails));
         console.log("User details stored:", userDetails);
 
-        // Redirect to the appropriate dashboard
+        // Redirect to the appropriate dashboard based on the role
         switch (role) {
           case "mainAdmin":
             navigate("/dashboard"); // Main Admin Dashboard
@@ -200,6 +236,9 @@ const Login = () => {
             break;
           case "teacher":
             navigate("/teacher-dashboard"); // Teacher Dashboard
+            break;
+          case "company":
+            navigate("/company-dashboard"); // Company Dashboard
             break;
           default:
             throw new Error("Unexpected role");
