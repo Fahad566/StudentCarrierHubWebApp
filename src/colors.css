@@ -1,0 +1,16 @@
+/* colors.css */
+
+/* Define color variables */
+:root {
+  --primary-bg-color: #0a0f1c;
+  --secondary-bg-color: #090e17;
+  --accent-bg-color: #080c13;
+  --form-bg-color: rgba(255, 255, 255, 0.05);
+  --input-bg-color: #161b22;
+  --border-color: #30363d;
+  --text-color: #c9d1d9;
+  --primary-button-color: #04395E;
+  --primary-button-hover-color: #000000;
+  --link-color: #58a6ff;
+  --error-color: red;
+}
