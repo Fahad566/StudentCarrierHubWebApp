@@ -1,0 +1,45 @@
+.resume-upload-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resume-upload-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  input[type="file"] {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+  }
+  
+  .parsed-result {
+    margin-top: 30px;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .parsed-result h2 {
+    margin-bottom: 15px;
+  }
+  

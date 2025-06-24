@@ -148,9 +148,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../index";
+import { auth , firestore } from "../../index";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { firestore } from "../../index";
 import "./Login.css";
 import universityImage from "../../assets/samford-hall-1614183_640.jpg";
 

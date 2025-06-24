@@ -1,0 +1,62 @@
+/* jobdetail.css */
+
+/* Job Detail Card Styles */
+.job-detail-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .job-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .company-name {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .job-description {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .job-meta {
+    margin-top: 20px;
+  }
+  
+  .meta-item {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .skills {
+    margin-top: 20px;
+  }
+  
+  .skill {
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .apply-btn1 {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .apply-btn1:hover {
+    background-color: #0056b3;
+  }
+  
+  .status {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  

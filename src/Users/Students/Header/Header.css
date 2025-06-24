@@ -1,0 +1,82 @@
+/* Header.css */
+.header1 {
+  background-color: #d20000; /* Red background */
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.welcome-message1 h2 {
+  font-size: 1.2rem;
+  color: #fff; /* White text */
+}
+
+.profile-actions1 {
+  display: flex;
+  gap: 15px;
+}
+
+.logout-btn1 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  border: solid 1px #d20000; /* Light gray border */
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.profile-btn1 {
+  color: #fff; /* White text for profile */
+}
+
+.logout-btn1 {
+  color: #e53e3e;
+}
+
+.profile-btn1:hover, .logout-btn1:hover {
+  background-color: #f0f0f0;
+}
+
+.mobile-menu-toggle1 {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header1 {
+    padding: 0 15px;
+  }
+
+  .mobile-menu-toggle1 {
+    display: block;
+    order: -1;
+  }
+
+  .mobile-menu-toggle1 button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* White color for mobile button */
+  }
+
+  .profile-actions1 {
+    gap: 5px;
+  }
+
+  .profile-btn1 span, .logout-btn1 span {
+    display: none;
+  }
+
+  .profile-btn1, .logout-btn1 {
+    padding: 8px;
+  }
+}
