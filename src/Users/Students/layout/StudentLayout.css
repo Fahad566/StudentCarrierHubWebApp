@@ -1,0 +1,24 @@
+.student-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .layout-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .layout-main {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9fafb;
+    overflow-y: auto;
+  }
+  
+  @media screen and (min-width: 769px) {
+    .sidebar {
+      transform: translateX(0) !important;
+    }
+  }

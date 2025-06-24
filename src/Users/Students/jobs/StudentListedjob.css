@@ -1,0 +1,177 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .header10 {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  h1 {
+    color: #2c3e50;
+    font-size: 28px;
+  }
+  
+  .job-listings {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .job-card {
+    margin-top: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 5px solid #3498db;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 10px 20px;
+  }
+  
+  .job-title {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .company-name {
+    color: #7f8c8d;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .job-type {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+  
+  .job-type.parttime {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .job-type.internship {
+    background-color: #fff8e1;
+    color: #ff8f00;
+  }
+  
+  .job-body {
+    padding: 0 20px 15px 20px;
+  }
+  
+  .job-description {
+    color: #34495e;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .job-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+    color: #7f8c8d;
+    font-size: 13px;
+  }
+  
+  .meta-item svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+  }
+  
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .skill {
+    background-color: #f5f7fa;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #5d6d7e;
+  }
+  
+  .job-footer {
+    padding: 0 20px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .apply-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    margin-top: -10px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .apply-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .post-date {
+    color: #95a5a6;
+    font-size: 12px;
+  }
+  .job-title-link {
+    text-decoration: none;  /* Remove underline */
+    color: inherit;         /* Maintain the text color */
+  }
+  
+  .job-title-link:hover {
+    text-decoration: underline;  /* Optional: add underline on hover */
+  }
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .job-header {
+      flex-direction: column;
+    }
+    
+    .job-type {
+      margin-top: 10px;
+      align-self: flex-start;
+    }
+    
+    .job-meta {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }

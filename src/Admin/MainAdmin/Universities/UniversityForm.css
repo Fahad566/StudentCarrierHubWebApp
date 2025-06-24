@@ -1,83 +1,93 @@
 /* Main Form Card Container */
 .form-card {
-    width: 400px;
-    margin: 50px auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    overflow: hidden;
-  }
-  
-  /* Orange Header with Cap */
-  .form-header {
-   
-    height: 150px;
-    position: relative;
-    background-image: url('D:\web project\react-practice\src\assets\samford-hall-1614183_640.jpg'); /* Add an image URL if needed */
-    background-size: cover; /* Adjusts the image to cover the entire background */
-    background-position: center; /* Centers the image in the header */
-    background-repeat: no-repeat;
+  width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  overflow: hidden;
 }
-  
-  
-  
-  /* Form Content */
-  .form-content {
-    padding: 20px;
-    height: 300px;
-  }
-  
-  .form-content h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    color: #333;
-  }
-  
-  /* Form Group Styling */
-  .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  .form-group input:focus {
-    border-color: #d20000;
-    box-shadow: 0 0 5px rgba(247, 59, 59, 0.5);
-  }
-  
-  /* Submit Button */
-  .submit-button {
-    display: block;
-    width: 100%;
-    background-color:#d20000;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #e65b2d;
-  }
-  
+
+/* Orange Header with Cap */
+.form-header {
+  height: 150px;
+  position: relative;
+  background-image: url('../../../assets/samford-hall-1614183_640.jpg'); /* Updated path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Form Content */
+.form-content {
+  padding: 20px;
+  height: auto; /* Changed from fixed height to auto */
+  min-height: 300px;
+}
+
+.form-content h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #333;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #d20000;
+  box-shadow: 0 0 5px rgba(247, 59, 59, 0.5);
+}
+
+/* Submit Button */
+.submit-button {
+  display: block;
+  width: 100%;
+  background-color: #d20000;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #e65b2d;
+}
+
+/* Error and success messages */
+.error-message {
+  color: #d20000;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.success-message {
+  color: #28a745;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
